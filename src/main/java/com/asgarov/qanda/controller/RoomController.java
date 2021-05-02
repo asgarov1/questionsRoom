@@ -22,7 +22,11 @@ public class RoomController {
     private QuestionService questionService;
 
     @GetMapping
-    public String getRoom(Model model) {
+    public String getOrCreateRoom(@RequestParam(required = false) String roomName, Model model) {
+        if (roomName != null) {
+            return "redirect:/room/" + roomName;
+        }
+
         Room room = roomService.createRoom();
 
         model.addAttribute("roomName", room.getName());
