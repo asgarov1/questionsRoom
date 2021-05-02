@@ -23,6 +23,7 @@ public class Question extends AbstractPersistable<Long> {
     private String questionText;
     private LocalDateTime timeAsked;
     private boolean isAnswered;
+    private String sessionId;
 
     @ManyToOne
     private Room room;
@@ -32,10 +33,11 @@ public class Question extends AbstractPersistable<Long> {
         this.timeAsked = timeAsked;
     }
 
-    public Question(String question, LocalDateTime timeAsked, Room room) {
+    public Question(String question, LocalDateTime timeAsked, Room room, String sessionId) {
         this.questionText = question;
         this.timeAsked = timeAsked;
         this.room = room;
+        this.sessionId = sessionId;
     }
 
     public String getHeading() {

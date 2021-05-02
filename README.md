@@ -8,6 +8,10 @@ questions that are displayed for everyone in that room.
 ###To run:
 `mvn spring-boot:run`
 
+
+###To package:
+`mvnw package`
+
 ###Tech Stack:
 - Java 11
 - SpringBoot 2.4.5

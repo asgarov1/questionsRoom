@@ -9,6 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
+
 @Controller
 @RequestMapping("/room")
 public class RoomController {
@@ -36,9 +38,9 @@ public class RoomController {
     }
 
     @PostMapping("/{roomName}/question")
-    public String postQuestion(@PathVariable String roomName, @RequestParam String questionText, Model model) {
+    public String postQuestion(@PathVariable String roomName, @RequestParam String questionText, Model model, HttpSession session) {
         Room room = roomService.getRoom(roomName);
-        Question question = questionService.createQuestion(questionText, room);
+        Question question = questionService.createQuestion(questionText, room, session.getId());
 
         room.addQuestion(question);
         roomService.save(room);

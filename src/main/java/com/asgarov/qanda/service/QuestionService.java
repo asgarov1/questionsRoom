@@ -13,8 +13,8 @@ public class QuestionService {
     @Autowired
     private QuestionRepository repository;
 
-    public Question createQuestion(String questionText, Room room) {
-        Question question = new Question(questionText, LocalDateTime.now(), room);
+    public Question createQuestion(String questionText, Room room, String sessionId) {
+        Question question = new Question(questionText, LocalDateTime.now(), room, sessionId);
         repository.save(question);
         return question;
     }
@@ -25,5 +25,9 @@ public class QuestionService {
 
     public void update(Question question) {
         repository.save(question);
+    }
+
+    public void delete(Question question) {
+        repository.delete(question);
     }
 }
