@@ -1,7 +1,7 @@
 #Questions Room
 
-This little app created an endpoint available at `localhost/room/{roomName}`. 
-If room doesn't exists it will be created. 
+This little app creates an endpoint available at `localhost/room/{roomName}`. 
+If room doesn't exist it will be created. 
 If it exists you will join it. People inside of the room can post 
 questions that are displayed for everyone in that room.
 
